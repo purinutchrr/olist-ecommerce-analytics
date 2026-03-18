@@ -22,6 +22,12 @@ The repository is organized following a systematic analytical pipeline:
 The analysis is based on the Brazilian E-Commerce Public Dataset by Olist available on Kaggle:
 [Olist Brazilian E-Commerce Dataset](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
+**Note:** Due to GitHub's file size limitations, the raw `.csv` files and the generated `olist.db` (SQLite) are not included in this repository. 
+
+**To replicate the database:**
+1. Download the dataset from Kaggle and place it in a `/dataset` folder.
+2. Run the notebook in `01_Data_Preprocessing/01_Exploration_and_Cleaning.ipynb` to automatically generate the `olist.db` file.
+
 ---
 
 ## Technical Methodology
