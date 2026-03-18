@@ -1,0 +1,182 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "af4b53e0853e56b6fb6c",
+  "position": {
+    "x": 531.54909090909086,
+    "y": 32.581818181818178,
+    "z": 7000,
+    "height": 305.33818181818179,
+    "width": 454.28363636363639,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "order_payments"
+                    }
+                  },
+                  "Property": "payment_installments"
+                }
+              },
+              "queryRef": "order_payments.payment_installments",
+              "nativeQueryRef": "Number of Installments",
+              "active": true,
+              "displayName": "Number of Installments"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "order_payments"
+                    }
+                  },
+                  "Property": "payment_type"
+                }
+              },
+              "queryRef": "order_payments.payment_type",
+              "nativeQueryRef": "Payment Type",
+              "displayName": "Payment Type"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "order_payments"
+                        }
+                      },
+                      "Property": "order_id"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(order_payments.order_id)",
+              "nativeQueryRef": "Number of Orders",
+              "displayName": "Number of Orders"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "order_payments"
+                  }
+                },
+                "Property": "payment_installments"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "axisType": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Categorical'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Order Distribution by Installments'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c05e22a44545f27e62ef",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "order_payments"
+              }
+            },
+            "Property": "payment_installments"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "o",
+              "Entity": "order_payments",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 4,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "o"
+                        }
+                      },
+                      "Property": "payment_installments"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "12L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

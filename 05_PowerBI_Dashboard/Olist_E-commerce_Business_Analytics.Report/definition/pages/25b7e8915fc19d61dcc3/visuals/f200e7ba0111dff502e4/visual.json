@@ -1,0 +1,187 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "f200e7ba0111dff502e4",
+  "position": {
+    "x": 687.01090909090908,
+    "y": 398.42909090909092,
+    "z": 6000,
+    "height": 287.65090909090907,
+    "width": 545.51272727272726,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_regional_performance"
+                    }
+                  },
+                  "Property": "customer_state"
+                }
+              },
+              "queryRef": "olist_regional_performance.customer_state",
+              "nativeQueryRef": "Customer State",
+              "active": true,
+              "displayName": "Customer State"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "olist_regional_performance"
+                    }
+                  },
+                  "Property": "customer_state"
+                }
+              },
+              "queryRef": "olist_regional_performance.customer_state",
+              "nativeQueryRef": "Customer State",
+              "displayName": "Customer State"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "olist_regional_performance"
+                        }
+                      },
+                      "Property": "review_score"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(olist_regional_performance.review_score)",
+              "nativeQueryRef": "Satisfaction Score by State",
+              "displayName": "Satisfaction Score by State"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "olist_regional_performance"
+                      }
+                    },
+                    "Property": "review_score"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "showGradientLegend": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 9,
+                      "Percent": 0.2
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "olist_regional_performance"
+                          }
+                        },
+                        "Property": "customer_state"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'SP'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Satisfaction Score by State'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

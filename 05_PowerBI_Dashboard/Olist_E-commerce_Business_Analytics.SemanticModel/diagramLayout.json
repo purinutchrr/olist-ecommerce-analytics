@@ -1,0 +1,191 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 268,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1155.4496224168486,
+            "y": 480.33130542392951
+          },
+          "nodeIndex": "catgory_translation",
+          "nodeLineageTag": "49e25013-2d82-4f2c-a926-58bef8959a78",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 72.727646680907554,
+            "y": 604.66261084785879
+          },
+          "nodeIndex": "customers",
+          "nodeLineageTag": "ba6e3bf8-7d09-4e59-8841-ff7d027d083b",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1186.4496224168486,
+            "y": 183.33130542392951
+          },
+          "nodeIndex": "geolocation",
+          "nodeLineageTag": "720b1e76-fd10-4b7d-90ef-fb3d65a8513d",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 637.39268457426249,
+            "y": 278.96912429329188
+          },
+          "nodeIndex": "order_items",
+          "nodeLineageTag": "b84a83b6-38f9-46d3-8668-f1b6ca833890",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 171.05304863457025
+          },
+          "nodeIndex": "order_payments",
+          "nodeLineageTag": "9f5fe120-af62-4847-9f8d-4a360109c440",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 407.05998132036069,
+            "y": 0
+          },
+          "nodeIndex": "order_reviews",
+          "nodeLineageTag": "c01d29b9-d110-4312-a68c-43863fdd9dc2",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 357.78769458966917,
+            "y": 345.48143510102705
+          },
+          "nodeIndex": "orders",
+          "nodeLineageTag": "1d55c647-32ef-49f3-8007-aa6e4b9682ed",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 922.44962241684868,
+            "y": 132.90853818042245
+          },
+          "nodeIndex": "products",
+          "nodeLineageTag": "8e3233ee-3549-4980-8153-b44c70fa16e2",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 812.02384391986016,
+            "y": 596.78577565107639
+          },
+          "nodeIndex": "sellers",
+          "nodeLineageTag": "d684024f-c8e6-4c4f-8c8e-b03ad2b5fa8d",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 512.44962241684857,
+            "y": 762.33130542392939
+          },
+          "nodeIndex": "olist_rfm_segments",
+          "nodeLineageTag": "27158af0-abfa-4ad0-bc40-47b97667d590",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 354.44962241684857,
+            "y": 1110.1656527119646
+          },
+          "nodeIndex": "olist_payments_clean (2)",
+          "nodeLineageTag": "7bc88e46-2960-4fc1-8bb8-007a71f4e034",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 863.44962241684857,
+            "y": 984.08282635598232
+          },
+          "nodeIndex": "olist_regional_performance",
+          "nodeLineageTag": "4b846813-4538-4027-9315-e06a4716f2ea",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420.4496224168486,
+            "y": 555.08282635598232
+          },
+          "nodeIndex": "olist_payments_clean",
+          "nodeLineageTag": "0b3fb904-f74c-4889-9a6c-67d23531bd15",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

@@ -1,0 +1,54 @@
+table customers
+	lineageTag: ba6e3bf8-7d09-4e59-8841-ff7d027d083b
+
+	column customer_id
+		dataType: string
+		lineageTag: 91e5754c-0e57-4111-a91e-295472769378
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 422dd7e6-af39-4d67-90d2-19cc54698b48
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_zip_code_prefix
+		dataType: double
+		lineageTag: 6af58f15-7d26-46e8-9bfc-deb8026eae48
+		summarizeBy: sum
+		sourceColumn: customer_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_city
+		dataType: string
+		lineageTag: b7c50cdb-38bd-4920-9a5b-4293ab5927bd
+		summarizeBy: none
+		sourceColumn: customer_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: eff18960-eb13-4b2e-9228-e4ed9b767be0
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customers = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    customers_Table = Source{[Name="customers",Kind="Table"]}[Data]
+				in
+				    customers_Table
+

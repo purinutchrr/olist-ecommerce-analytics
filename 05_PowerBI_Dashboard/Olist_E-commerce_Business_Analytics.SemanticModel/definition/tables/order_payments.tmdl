@@ -1,0 +1,60 @@
+table order_payments
+	lineageTag: 9f5fe120-af62-4847-9f8d-4a360109c440
+
+	column order_id
+		dataType: string
+		lineageTag: 3d0fe3ba-a4ae-4fff-9ff2-92ebb1f2c704
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_sequential
+		dataType: double
+		lineageTag: 21861dd0-9ea9-494a-b685-54aa22dcade7
+		summarizeBy: sum
+		sourceColumn: payment_sequential
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payment_type
+		dataType: string
+		lineageTag: 3ae002e4-6cc5-47af-ba54-c9fafc23f6fb
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_installments
+		dataType: double
+		lineageTag: f2271110-a4f0-4465-93f9-017fc1edc2bd
+		summarizeBy: sum
+		sourceColumn: payment_installments
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column payment_value
+		dataType: double
+		lineageTag: 97ae96f1-ddd2-48d9-9c7b-74ef677efa5e
+		summarizeBy: sum
+		sourceColumn: payment_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition order_payments = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    order_payments_Table = Source{[Name="order_payments",Kind="Table"]}[Data]
+				in
+				    order_payments_Table
+
+	annotation PBI_ResultType = Table
+

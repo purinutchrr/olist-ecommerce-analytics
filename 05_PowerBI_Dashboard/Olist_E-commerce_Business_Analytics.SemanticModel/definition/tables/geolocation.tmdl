@@ -1,0 +1,58 @@
+table geolocation
+	lineageTag: 720b1e76-fd10-4b7d-90ef-fb3d65a8513d
+
+	column geolocation_zip_code_prefix
+		dataType: double
+		lineageTag: f47bf179-e6fc-499c-bde2-f1b1fc82640f
+		summarizeBy: sum
+		sourceColumn: geolocation_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_lat
+		dataType: double
+		lineageTag: 322549c1-7305-4c7a-a849-73de9221259d
+		summarizeBy: sum
+		sourceColumn: geolocation_lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_lng
+		dataType: double
+		lineageTag: adbe33bc-6d14-473d-bbd4-109de10d4061
+		summarizeBy: sum
+		sourceColumn: geolocation_lng
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column geolocation_city
+		dataType: string
+		lineageTag: db19229e-8de5-4fe7-9631-f68921c757f5
+		summarizeBy: none
+		sourceColumn: geolocation_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column geolocation_state
+		dataType: string
+		lineageTag: f0292690-133b-4e47-80a8-72b9bb8313ff
+		summarizeBy: none
+		sourceColumn: geolocation_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition geolocation = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    geolocation_Table = Source{[Name="geolocation",Kind="Table"]}[Data]
+				in
+				    geolocation_Table
+

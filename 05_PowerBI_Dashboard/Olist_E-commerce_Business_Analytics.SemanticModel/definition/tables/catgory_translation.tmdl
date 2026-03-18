@@ -1,0 +1,30 @@
+table catgory_translation
+	lineageTag: 49e25013-2d82-4f2c-a926-58bef8959a78
+
+	column product_category_name
+		dataType: string
+		lineageTag: 9070c1ad-cc8c-4a9a-a0e8-dc70dc28b9b3
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_category_name_english
+		dataType: string
+		lineageTag: 176ab0da-9238-4955-a82f-a5dcc8408464
+		summarizeBy: none
+		sourceColumn: product_category_name_english
+
+		annotation SummarizationSetBy = Automatic
+
+	partition catgory_translation = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    catgory_translation_Table = Source{[Name="catgory_translation",Kind="Table"]}[Data]
+				in
+				    catgory_translation_Table
+
+	annotation PBI_ResultType = Table
+

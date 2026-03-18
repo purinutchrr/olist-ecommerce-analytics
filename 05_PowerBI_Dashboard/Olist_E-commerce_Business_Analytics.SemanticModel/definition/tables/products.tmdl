@@ -1,0 +1,100 @@
+table products
+	lineageTag: 8e3233ee-3549-4980-8153-b44c70fa16e2
+
+	column product_id
+		dataType: string
+		lineageTag: b4e731e7-c2a6-4d0c-a11e-46eefdd8970e
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_name_lenght
+		dataType: double
+		lineageTag: 77980569-0b74-488a-9413-36bed86ec3cc
+		summarizeBy: none
+		sourceColumn: product_name_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_description_lenght
+		dataType: double
+		lineageTag: ceb7c5db-588d-441e-927a-c1c8ad686b61
+		summarizeBy: none
+		sourceColumn: product_description_lenght
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_photos_qty
+		dataType: double
+		lineageTag: 99dcb22c-acea-4c1d-892b-c4aeda153682
+		summarizeBy: none
+		sourceColumn: product_photos_qty
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_weight_g
+		dataType: double
+		lineageTag: 4f19f6c3-7c4f-418a-ae57-9d0ec130bc55
+		summarizeBy: none
+		sourceColumn: product_weight_g
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_length_cm
+		dataType: double
+		lineageTag: 0504b5dd-21b9-4b27-bf39-4bcce1fc0a2e
+		summarizeBy: none
+		sourceColumn: product_length_cm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_height_cm
+		dataType: double
+		lineageTag: ffac063d-d6c5-417f-8719-fb5afd24328f
+		summarizeBy: none
+		sourceColumn: product_height_cm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_width_cm
+		dataType: double
+		lineageTag: 7a6ded7e-ab6e-4ee4-9e9e-b05c01493e4d
+		summarizeBy: none
+		sourceColumn: product_width_cm
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_category_name
+		dataType: string
+		lineageTag: 38d8f63e-f805-4479-8de6-f26215824f65
+		summarizeBy: none
+		sourceColumn: product_category_name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition products = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    products_Table = Source{[Name="products",Kind="Table"]}[Data]
+				in
+				    products_Table
+
+	annotation PBI_ResultType = Table
+

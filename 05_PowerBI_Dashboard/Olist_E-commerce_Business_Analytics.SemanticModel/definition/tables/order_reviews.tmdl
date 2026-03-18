@@ -1,0 +1,72 @@
+table order_reviews
+	lineageTag: c01d29b9-d110-4312-a68c-43863fdd9dc2
+
+	column review_id
+		dataType: string
+		lineageTag: 90800e1c-3e77-46a6-a94b-e348b5dc56b3
+		summarizeBy: none
+		sourceColumn: review_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_id
+		dataType: string
+		lineageTag: 27e019ff-b6b6-41da-9da5-a71248b848b1
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: double
+		lineageTag: 8f9c1374-a5b7-44ea-b677-ead8c118bc94
+		summarizeBy: sum
+		sourceColumn: review_score
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column review_comment_title
+		dataType: string
+		lineageTag: c8095c34-e99a-488c-b770-964d6d0d8d8b
+		summarizeBy: none
+		sourceColumn: review_comment_title
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_comment_message
+		dataType: string
+		lineageTag: 916564c2-01d8-4e05-a4dc-79f4c72efe22
+		summarizeBy: none
+		sourceColumn: review_comment_message
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_creation_date
+		dataType: string
+		lineageTag: 54e416da-faa8-421c-9965-1275aa59870e
+		summarizeBy: none
+		sourceColumn: review_creation_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_answer_timestamp
+		dataType: string
+		lineageTag: ce10e301-d22b-43d7-a096-ac72bd08b35b
+		summarizeBy: none
+		sourceColumn: review_answer_timestamp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition order_reviews = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    order_reviews_Table = Source{[Name="order_reviews",Kind="Table"]}[Data]
+				in
+				    order_reviews_Table
+
+	annotation PBI_ResultType = Table
+

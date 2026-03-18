@@ -1,0 +1,49 @@
+table olist_regional_performance
+	lineageTag: 4b846813-4538-4027-9315-e06a4716f2ea
+
+	column order_id
+		dataType: string
+		lineageTag: 7055247c-fd28-4b9b-8988-676ec2198355
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_state
+		dataType: string
+		lineageTag: b44aa6b2-2024-43e9-9094-9a434e3a2a68
+		summarizeBy: none
+		sourceColumn: customer_state
+
+		annotation SummarizationSetBy = Automatic
+
+	column delivery_time
+		dataType: int64
+		formatString: 0
+		lineageTag: 44ec3164-4a78-4571-9671-435078e97995
+		summarizeBy: sum
+		sourceColumn: delivery_time
+
+		annotation SummarizationSetBy = Automatic
+
+	column review_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d7920e4-4f34-41b9-aba2-677d542469c5
+		summarizeBy: sum
+		sourceColumn: review_score
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_regional_performance = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\MSI\Desktop\Data Project\Olist\04_Customer_Behavior_and_Statistical_Testing\olist_regional_performance.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_id", type text}, {"customer_state", type text}, {"delivery_time", Int64.Type}, {"review_score", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

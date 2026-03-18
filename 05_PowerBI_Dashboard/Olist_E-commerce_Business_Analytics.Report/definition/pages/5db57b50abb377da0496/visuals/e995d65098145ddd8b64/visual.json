@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "e995d65098145ddd8b64",
+  "position": {
+    "x": 16.340425531914892,
+    "y": 331.71078872064311,
+    "z": 1000,
+    "height": 105.30496453900709,
+    "width": 219.68794326241135,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "order_payments"
+                        }
+                      },
+                      "Property": "order_id"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(order_payments.order_id)",
+              "nativeQueryRef": "Total Transactions",
+              "displayName": "Total Transactions"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "order_payments"
+                      }
+                    },
+                    "Property": "order_id"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,48 @@
+table sellers
+	lineageTag: d684024f-c8e6-4c4f-8c8e-b03ad2b5fa8d
+
+	column seller_id
+		dataType: string
+		lineageTag: 99865251-a95a-4933-819a-95240e2ced5e
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_zip_code_prefix
+		dataType: double
+		lineageTag: 64b41294-2bd0-43f0-8712-3517914feb29
+		summarizeBy: none
+		sourceColumn: seller_zip_code_prefix
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column seller_city
+		dataType: string
+		lineageTag: c82ae0f9-fa81-4f4e-8802-93e7107bfb13
+		summarizeBy: none
+		sourceColumn: seller_city
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_state
+		dataType: string
+		lineageTag: 83b38ac3-a408-4b82-a105-6a5855a9efe3
+		summarizeBy: none
+		sourceColumn: seller_state
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sellers = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    sellers_Table = Source{[Name="sellers",Kind="Table"]}[Data]
+				in
+				    sellers_Table
+
+	annotation PBI_ResultType = Table
+

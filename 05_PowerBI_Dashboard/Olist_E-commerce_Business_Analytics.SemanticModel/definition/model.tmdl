@@ -1,0 +1,36 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["customers","geolocation","order_items","order_payments","order_reviews","orders","products","sellers","catgory_translation","olist_payments_clean","olist_rfm_segments","olist_payments_clean (2)","olist_regional_performance"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table customers
+ref table geolocation
+ref table order_items
+ref table order_payments
+ref table order_reviews
+ref table orders
+ref table DateTableTemplate_718a8a75-8d72-410b-8510-b8e4afac37f4
+ref table LocalDateTable_25b43b87-b548-46ef-82c1-8a18c271bbcd
+ref table LocalDateTable_284fe5f0-288a-41f2-b2c4-98f8b0f3320d
+ref table LocalDateTable_b3124231-0f96-406b-9c2a-25c3516a1316
+ref table LocalDateTable_415fdf52-920d-4a60-865b-f0924a18b8c4
+ref table LocalDateTable_2a49aa64-04ae-4f38-85d2-6c2aa55ef1e4
+ref table products
+ref table sellers
+ref table catgory_translation
+ref table olist_rfm_segments
+ref table 'olist_payments_clean (2)'
+ref table olist_regional_performance
+ref table olist_payments_clean
+
+ref cultureInfo en-US
+

@@ -1,0 +1,86 @@
+table olist_rfm_segments
+	lineageTag: 27158af0-abfa-4ad0-bc40-47b97667d590
+
+	column customer_unique_id
+		dataType: string
+		lineageTag: 957f62d2-2165-46be-b8e7-854857ab57b8
+		summarizeBy: none
+		sourceColumn: customer_unique_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column recency
+		dataType: int64
+		formatString: 0
+		lineageTag: 0059c4fb-c50d-4558-9942-a703e1d54cca
+		summarizeBy: none
+		sourceColumn: recency
+
+		annotation SummarizationSetBy = Automatic
+
+	column frequency
+		dataType: int64
+		formatString: 0
+		lineageTag: 888276cd-1829-4ae9-a0c9-7642a12f85ca
+		summarizeBy: none
+		sourceColumn: frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column monetary
+		dataType: double
+		lineageTag: ef6df8e6-8e26-42c9-b8cd-af37de0c4520
+		summarizeBy: none
+		sourceColumn: monetary
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column r_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 178c1a40-22a6-4df6-8c30-446459387db0
+		summarizeBy: none
+		sourceColumn: r_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column m_score
+		dataType: int64
+		formatString: 0
+		lineageTag: 53c972af-9bae-4444-bd19-2e6ae03acba9
+		summarizeBy: none
+		sourceColumn: m_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column f_score
+		dataType: int64
+		formatString: 0
+		lineageTag: c20a928d-3940-4225-b57c-b21ec7cf5284
+		summarizeBy: none
+		sourceColumn: f_score
+
+		annotation SummarizationSetBy = Automatic
+
+	column segment
+		dataType: string
+		lineageTag: e1e54906-dd2a-4dd6-943d-61a5b2a2568e
+		summarizeBy: none
+		sourceColumn: segment
+
+		annotation SummarizationSetBy = Automatic
+
+	partition olist_rfm_segments = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\MSI\Desktop\Data Project\Olist\04_Customer_Behavior_and_Statistical_Testing\olist_rfm_segments.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"customer_unique_id", type text}, {"recency", Int64.Type}, {"frequency", Int64.Type}, {"monetary", type number}, {"r_score", Int64.Type}, {"m_score", Int64.Type}, {"f_score", Int64.Type}, {"segment", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

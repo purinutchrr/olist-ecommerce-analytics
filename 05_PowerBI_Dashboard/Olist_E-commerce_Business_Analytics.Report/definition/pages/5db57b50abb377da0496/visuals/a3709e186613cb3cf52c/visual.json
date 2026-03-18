@@ -1,0 +1,67 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "a3709e186613cb3cf52c",
+  "position": {
+    "x": 16.340425531914892,
+    "y": 473.32780999723889,
+    "z": 3000,
+    "height": 105.30496453900709,
+    "width": 219.68794326241135,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "order_payments"
+                        }
+                      },
+                      "Property": "payment_value"
+                    }
+                  },
+                  "Function": 1
+                }
+              },
+              "queryRef": "Sum(order_payments.payment_value)",
+              "nativeQueryRef": "Average Order Value",
+              "displayName": "Average Order Value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "order_payments"
+                      }
+                    },
+                    "Property": "payment_value"
+                  }
+                },
+                "Function": 1
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

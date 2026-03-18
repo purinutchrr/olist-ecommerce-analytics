@@ -1,0 +1,41 @@
+table olist_payments_clean
+	lineageTag: 0b3fb904-f74c-4889-9a6c-67d23531bd15
+
+	column order_id
+		dataType: string
+		lineageTag: 6e7f37bc-6abb-45c2-8034-25a5e21dadd9
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_type
+		dataType: string
+		lineageTag: 629e3e0f-ab00-4801-96fe-88c1357e7a94
+		summarizeBy: none
+		sourceColumn: payment_type
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_value
+		dataType: double
+		lineageTag: 2149ecb4-69d8-420d-85a9-082f658d6f47
+		summarizeBy: sum
+		sourceColumn: payment_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition olist_payments_clean = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\MSI\Desktop\Data Project\Olist\04_Customer_Behavior_and_Statistical_Testing\olist_payments_clean.csv"),[Delimiter=",", Columns=3, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"order_id", type text}, {"payment_type", type text}, {"payment_value", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Table
+

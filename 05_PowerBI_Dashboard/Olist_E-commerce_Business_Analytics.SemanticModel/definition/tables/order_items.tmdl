@@ -1,0 +1,76 @@
+table order_items
+	lineageTag: b84a83b6-38f9-46d3-8668-f1b6ca833890
+
+	column order_id
+		dataType: string
+		lineageTag: cd503324-4c81-4613-9ed8-403b67cf9663
+		summarizeBy: none
+		sourceColumn: order_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column order_item_id
+		dataType: double
+		lineageTag: 01512f26-172a-4475-9478-a24b1ed06b07
+		summarizeBy: sum
+		sourceColumn: order_item_id
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_id
+		dataType: string
+		lineageTag: 5477450e-294f-4343-bdaf-c9207788e04a
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller_id
+		dataType: string
+		lineageTag: b61e5e36-5acf-472d-b6b4-5003df2bd552
+		summarizeBy: none
+		sourceColumn: seller_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column shipping_limit_date
+		dataType: string
+		lineageTag: ee8866a8-7ef3-4a42-8819-5013247b6dc4
+		summarizeBy: none
+		sourceColumn: shipping_limit_date
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: f03d1ff2-fbb1-4e74-811e-9214b1e097be
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column freight_value
+		dataType: double
+		lineageTag: 0b5e9a2e-c36d-4910-9fa7-e8b941bf7c28
+		summarizeBy: sum
+		sourceColumn: freight_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition order_items = m
+		mode: import
+		source =
+				let
+				    Source = Odbc.DataSource("dsn=Olist_DB", [HierarchicalNavigation=true]),
+				    order_items_Table = Source{[Name="order_items",Kind="Table"]}[Data]
+				in
+				    order_items_Table
+
+	annotation PBI_ResultType = Table
+
