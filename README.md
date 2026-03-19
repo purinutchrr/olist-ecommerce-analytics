@@ -10,11 +10,11 @@ This project provides an end-to-end analytical deep dive into **Olist**, the lar
 The repository is organized following a systematic analytical pipeline:
 
 * **`01_Data_Preprocessing/`**: Python scripts for data cleaning, temporal calibration, and relational database construction.
-* **`02_SQL_Analysis/`**: Advanced SQL queries developed in **DBeaver** for KPI extraction and business metric engineering.
+* **`02_SQL_Analysis_and_Insights/`**: Advanced SQL queries developed in **DBeaver** for KPI extraction and business metric engineering.
 * **`03_Exploratory_Data_Analysis/`**: Diagnostic visualizations using Seaborn and Matplotlib to identify preliminary patterns.
 * **`04_Statistical_Modeling/`**: RFM segmentation and hypothesis testing (T-tests) for quantitative validation.
 * **`05_PowerBI_Dashboard/`**: Interactive **Power BI** report files and executive dashboard snapshots.
-* **`documents/`**: Full Executive Report and Presentation (Designed in **Canva**).
+* **`Olist E-commerce Business Analytics Report.pdf`**: Full Executive Report and Presentation.
 
 ---
 
